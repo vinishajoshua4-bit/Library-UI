@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: municipal-library
+    runtime: docker
+    plan: starter
+    disk:
+      name: library-data
+      mountPath: /data
+      sizeGB: 1

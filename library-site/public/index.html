@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Municipal Library</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="fxc" aria-hidden="true"></canvas>
+<div class="wrap">
+<header>
+  <div><h1>Municipal Library</h1><p>Find a book, borrow it for 14 days, return it here.</p></div>
+  <div id="me" class="meta" hidden><span id="who"></span> <button class="fxb" id="out">Sign out</button></div>
+</header>
+<section id="auth" class="frm" hidden><h2>Sign in to borrow books</h2>
+<label>Name (new accounts only)<input id="an" autocomplete="name"></label>
+<label>Email<input id="ae" type="email" autocomplete="email"></label>
+<label>Password (8 or more characters)<input id="ap" type="password" autocomplete="current-password"></label>
+<div class="acts"><button class="btn" id="lg">Sign in</button><button class="btn ghost" id="rg">Create account</button></div>
+<div class="status late" id="aerr" role="alert"></div>
+<p class="meta">The first account created becomes the librarian and can add books.</p></section>
+<div id="app" hidden>
+<div id="fx" class="fxrow" role="group" aria-label="Effect theme"></div>
+<section class="hero"><div class="stage" aria-hidden="true"><div class="ring" id="ring"></div></div><div id="stats"></div></section>
+<nav role="tablist">
+  <button role="tab" id="t-cat" aria-selected="true">Catalog</button>
+  <button role="tab" id="t-loans" aria-selected="false">My loans <span id="count"></span></button>
+  <button role="tab" id="t-add" aria-selected="false">Add book</button>
+</nav>
+<section id="catalog">
+  <div class="tools">
+    <input id="q" type="search" placeholder="Search title or author" aria-label="Search title or author">
+    <select id="cat" aria-label="Category"><option value="">All categories</option></select>
+    <label class="chk"><input type="checkbox" id="avail"> Available only</label>
+    <label class="chk"><input type="checkbox" id="favo"> Favorites</label>
+    <select id="sort" aria-label="Sort"><option value="title">Sort: Title</option><option value="new">Sort: Newest</option><option value="avail">Sort: Most available</option></select>
+  </div>
+  <ul id="list"></ul>
+</section>
+<section id="loans" hidden><ul id="loanlist"></ul></section>
+<section id="add" hidden><div class="frm"><h2>Add a book</h2><label>Title<input id="nt"></label><label>Author<input id="na"></label><label>Category<select id="nc"></select></label><label>Year<input id="ny" type="number" placeholder="2024"></label><label>Copies<input id="nn" type="number" min="1" value="1"></label><button class="btn" id="addbtn">Add to catalog</button></div></section>
+</div>
+</div>
+<div id="toast" role="status"></div>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
